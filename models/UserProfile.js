@@ -32,15 +32,15 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        dateOfBirth: {
+        date_of_birth: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        firstName: {
+        first_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        lastName: {
+        last_name: {
             type: DataTypes.STRING,
             allowNull: false,
         }
@@ -60,7 +60,7 @@ User.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'userprofile',
       }
 )
 
