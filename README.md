@@ -44,6 +44,9 @@ The application is deployed [here](https://)
 ![Landing Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/landingpage.png) 
 
 &nbsp;
+![Landing Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/landingpage2.png) 
+
+&nbsp;
 ![Explore Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/explorepage.png)
 
 &nbsp;
