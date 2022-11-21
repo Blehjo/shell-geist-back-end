@@ -53,7 +53,7 @@ The application is deployed [here](https://)
 
 &nbsp;
   ## Future:
-In a future development, Polari:
+In a future development, Shell Geist:
   
   * Will use AWS to store photos
   * Will use user's geo-location to filter matches based on location instead of having the user enter their city
