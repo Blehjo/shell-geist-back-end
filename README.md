@@ -41,27 +41,25 @@ The application is deployed [here](https://)
 
 &nbsp;
 > Landing Page
-![Landing Page](https://user-images.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/landingpage.png) 
+![Landing Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/landingpage.png) 
+
+&nbsp;
+![Explore Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/explorepage.png)
 
 &nbsp;
 > Log in & Sign Up
-![Log in]()
-
-&nbsp;
-![Dashboard]()
-
+![Log in](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/signinpage.png)
 
 &nbsp;
   ## Future:
 In a future development, Shell Geist:
   
   * Will use AWS to store photos
-  * Will use user's geo-location to filter matches based on location instead of having the user enter their city
   * Will allow users to upload multiple photos
 
   &nbsp;
   ## Questions:
-  If you need any further assistance, the contact information  of the group members is below. Additionally, you may email gheistshell@gmail.com or visit us on Discord [@ShellGeist](https://discord.gg/sKywbh5R)
+  If you need any further assistance, the contact information of the group members is below. Additionally, you may email gheistshell@gmail.com or visit us on Discord [@ShellGeist](https://discord.gg/sKywbh5R)
 
   #### Bleh Seton: 
   * Github: [blehjo](https://github.com/Blehjo)
