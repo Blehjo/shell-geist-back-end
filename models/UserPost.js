@@ -26,10 +26,7 @@ UserPost.init(
         },
         media_location_url: {
             type: DataTypes.STRING,
-            references: {
-                model: 'game',
-                key: 'id',
-            },
+            allowNull: true,
         },
         created_date_time: {
             type: DataTypes.DATE,
