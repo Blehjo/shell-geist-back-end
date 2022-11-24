@@ -17,20 +17,13 @@ router.get('/', async (req, res) => {
         });
 
         const posts = postData.map((post) => post.get({ plain: true }))
-        // res.render('index', {
-        //     posts
-        // })
+        res.json(
+            posts
+        )
         console.log(posts)
     } catch (err) {
         res.status(500).json(err)
     }
 });
-
-router.get('/menu', (req, res) => {
-    res.render('menu', {
-        logged_in: req.session.user_id
-
-    })
-})
 
 module.exports = router;
