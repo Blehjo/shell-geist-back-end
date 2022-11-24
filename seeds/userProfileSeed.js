@@ -53,7 +53,7 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Dennis",
-    "name":"Schulist"
+    "last_name":"Schulist"
   },
   {
     "username": "Elwyn.Skiles",

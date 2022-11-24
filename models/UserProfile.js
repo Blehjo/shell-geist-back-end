@@ -8,7 +8,7 @@ class UserProfile extends Model {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
-User.init(
+UserProfile.init(
     {
         id: {
             type: DataTypes.INTEGER,
