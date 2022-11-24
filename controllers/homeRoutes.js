@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { UserProfile, UserPost, Friendship, PostLike, PostComment } = require('../models');
-const isAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
@@ -25,5 +24,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err)
     }
 });
+
+// router.get('/')
 
 module.exports = router;
