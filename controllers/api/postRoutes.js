@@ -4,19 +4,6 @@ const { UserProfile, UserPost, Friendship, PostLike, PostComment } = require('..
 router.get('/', async (req, res) => {
     try {
         const postData = await UserPost.findAll({
-            include: [
-                {
-                    model: UserProfile,
-                    attributes: ['username'],
-                },
-                {
-                    model: PostComment,
-                    attributes: ['comment_text', 'created_date_time']
-                }, 
-                { 
-                    model: PostLike,
-                }
-            ],
             order: [
                 ['created_date_time', 'DESC'],
             ],
