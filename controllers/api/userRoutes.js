@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserProfile, UserPost, PostLike, PostComment } = require('../../models');
+const { UserProfile } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -90,9 +90,39 @@ router.post('/logout', (req, res) => {
   } else {
     res.status(404).end();
   }
-} catch(err) {
-    res.status(500).json(err)
-}
+  } catch(err) {
+      res.status(500).json(err)
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  try {
+      const userData = await UserProfile.findByPk(req.params.id);
+      userData.set(req.body);
+      await userData.save();
+      res.status(200).json(userData);
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+      const userData = await UserProfile.destroy({
+          where: {
+              id: req.params.id,
+              user_id: req.session.user_id,
+          },
+      });
+      if (!userData) {
+          res.status(404).json({ message: 'Unable to delete!' });
+          return;
+      }
+      res.status(200).json(userData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
 });
 
 module.exports = router;
