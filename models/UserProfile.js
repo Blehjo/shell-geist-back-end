@@ -16,13 +16,6 @@ UserProfile.init(
             autoIncrement: true,
             allowNull: false
         },
-        // group_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'group',
-        //         key: 'id',
-        //     }
-        // },
         username : {
             type: DataTypes.STRING,   
             allowNull: false
