@@ -4,6 +4,7 @@ const Friendship = require('./Friendship');
 const PostComment = require('./PostComment');
 const PostLike = require('./PostLike');
 const Group = require('./Group');
+const Game = require('./Game');
 
 UserProfile.hasMany(UserPost, {
     foreignKey: 'profile_id',
@@ -50,6 +51,14 @@ Group.belongsTo(UserProfile, {
     foreignKey: 'profile_id',
 })
 
+UserProfile.hasMany(Game, {
+    foreignKey: 'profile_id',
+    onDelete: 'CASCADE'
+})
+
+Game.belongsTo(UserProfile, {
+    foreignKey: 'profile_id'
+})
 
 Group.hasMany(UserProfile, {
     foreignKey: 'profile_id',
@@ -78,4 +87,4 @@ PostComment.belongsTo(UserPost, {
     foreignKey: 'post_id'
 })
 
-module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike, Group };
+module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike, Group, Game };

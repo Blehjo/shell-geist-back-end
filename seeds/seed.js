@@ -1,25 +1,28 @@
 const sequelize = require('../config/connection');
 const seedProfiles = require('./userProfileSeed');
 const seedPosts = require('./userPostSeed');
-const seedFriendships = require('./friendshipSeed');
+const seedGroups = require('./groupSeed');
+const seedGames = require('./gameSeed');
 const seedComments = require('./commentSeed');
 const seedLikes = require('./likeSeed');
-const seedGroups = require('./groupSeed');
+const seedFriendships = require('./friendshipSeed');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
   await seedProfiles();
-
+  
   await seedPosts();
   
-  await seedFriendships();
+  await seedGroups();
+
+  await seedGames();
   
   await seedComments();
   
   await seedLikes();
-
-  await seedGroups();
+  
+  await seedFriendships();
 
   process.exit(0);
 };
