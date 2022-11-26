@@ -3,6 +3,7 @@ const UserPost = require('./UserPost');
 const Friendship = require('./Friendship');
 const PostComment = require('./PostComment');
 const PostLike = require('./PostLike');
+const Group = require('./Group');
 
 UserProfile.hasMany(UserPost, {
     foreignKey: 'profile_id',
@@ -40,6 +41,25 @@ PostComment.belongsTo(UserProfile, {
     foreignKey: 'profile_id'
 })
 
+UserProfile.hasMany(Group, {
+    foreignKey: 'group_id',
+    onDelete: 'CASCADE'
+})
+
+Group.belongsTo(UserProfile, {
+    foreignKey: 'profile_id',
+})
+
+
+Group.hasMany(UserProfile, {
+    foreignKey: 'profile_id',
+    onDelete: 'CASCADE'
+})
+
+UserProfile.belongsTo(Group, {
+    foreignKey: 'group_id',
+})
+
 UserPost.hasMany(PostLike, {
     foreignKey: 'post_id',
     onDelete: 'CASCADE'
@@ -58,4 +78,4 @@ PostComment.belongsTo(UserPost, {
     foreignKey: 'post_id'
 })
 
-module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike };
+module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike, Group };

@@ -4,6 +4,7 @@ const seedPosts = require('./userPostSeed');
 const seedFriendships = require('./friendshipSeed');
 const seedComments = require('./commentSeed');
 const seedLikes = require('./likeSeed');
+const seedGroups = require('./groupSeed');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -17,6 +18,8 @@ const seedAll = async () => {
   await seedComments();
   
   await seedLikes();
+
+  await seedGroups();
 
   process.exit(0);
 };

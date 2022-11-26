@@ -1,7 +1,8 @@
-const { UserProfile } = require('../models')
+const { UserProfile } = require('../models');
 
 const userprofiledata = [
   {
+    // "group_id": 10,
     "username": "Bret",
     "email": "Sincere@april.biz",
     "password": "hello",
@@ -11,6 +12,7 @@ const userprofiledata = [
     "last_name": "Graham"
   },
   {
+    // "group_id": 9, 
     "username": "Antonette",
     "email": "Shanna@melissa.tv",
     "password": "hello",
@@ -20,6 +22,7 @@ const userprofiledata = [
     "last_name": "Howell"
   },
   {
+    // "group_id": 8, 
     "username": "Samantha",
     "email": "Nathan@yesenia.net",
     "password": "hello",
@@ -29,6 +32,7 @@ const userprofiledata = [
     "last_name": "Bauch"
   },
   {
+    // "group_id": 7, 
     "username": "Karianne",
     "email": "Julianne.OConner@kory.org",
     "password": "hello",
@@ -38,6 +42,7 @@ const userprofiledata = [
     "last_name": "Lebsack"
   },
   {
+    // "group_id": 6, 
     "username": "Kamren",
     "email": "Lucio_Hettinger@annie.ca",
     "password": "hello",
@@ -47,6 +52,7 @@ const userprofiledata = [
     "last_name": "Dietrich"
   },
   {
+    // "group_id": 5, 
     "username": "Leopoldo_Corkery",
     "email": "Karley_Dach@jasper.info",
     "password": "hello",
@@ -56,6 +62,7 @@ const userprofiledata = [
     "last_name":"Schulist"
   },
   {
+    // "group_id": 4, 
     "username": "Elwyn.Skiles",
     "email": "Telly.Hoeger@billy.biz",
     "password": "hello",
@@ -65,6 +72,7 @@ const userprofiledata = [
     "last_name": "Weissnat"
   },
   {
+    // "group_id": 3, 
     "username": "Maxime_Nienow",
     "email": "Sherwood@rosamond.me",
     "password": "hello",
@@ -74,6 +82,7 @@ const userprofiledata = [
     "last_name":"Runolfsdottir V"
   },
   {
+    // "group_id": 2, 
     "username": "Delphine",
     "email": "Chaim_McDermott@dana.io",
     "password": "hello",
@@ -83,6 +92,7 @@ const userprofiledata = [
     "last_name": "Reichert"
   },
   {
+    // "group_id": 1, 
     "username": "Moriah.Stanton",
     "email": "Rey.Padberg@karina.biz",
     "password": "hello",
