@@ -4,6 +4,8 @@ const Friendship = require('./Friendship');
 const PostComment = require('./PostComment');
 const PostLike = require('./PostLike');
 const Group = require('./Group');
+const GroupChannel = require('./GroupChannel');
+const ChannelComment = require('./ChannelComment');
 const Game = require('./Game');
 
 UserProfile.hasMany(UserPost, {
@@ -43,7 +45,7 @@ PostComment.belongsTo(UserProfile, {
 })
 
 UserProfile.hasMany(Group, {
-    foreignKey: 'group_id',
+    foreignKey: 'profile_id',
     onDelete: 'CASCADE'
 })
 
@@ -57,6 +59,33 @@ UserProfile.hasMany(Game, {
 })
 
 Game.belongsTo(UserProfile, {
+    foreignKey: 'profile_id'
+})
+
+Group.hasMany(GroupChannel, {
+    foreignKey: 'group_id',
+    onDelete: 'CASCADE'
+})
+
+GroupChannel.belongsTo(Group, {
+    foreignKey: 'group_id'
+})
+
+GroupChannel.hasMany(ChannelComment, {
+    foreignKey: 'channel_id',
+    onDelete: 'CASCADE'
+})
+
+ChannelComment.belongsTo(GroupChannel, {
+    foreignKey: 'channel_id'
+})
+
+UserProfile.hasMany(ChannelComment, {
+    foreignKey: 'profile_id',
+    onDelete: 'CASCADE'
+})
+
+ChannelComment.belongsTo(UserProfile, {
     foreignKey: 'profile_id'
 })
 
@@ -78,4 +107,4 @@ PostComment.belongsTo(UserPost, {
     foreignKey: 'post_id'
 })
 
-module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike, Group, Game };
+module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike, Group, Game, GroupChannel, ChannelComment };
