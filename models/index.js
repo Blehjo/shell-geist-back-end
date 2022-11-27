@@ -60,15 +60,6 @@ Game.belongsTo(UserProfile, {
     foreignKey: 'profile_id'
 })
 
-Group.hasMany(UserProfile, {
-    foreignKey: 'profile_id',
-    onDelete: 'CASCADE'
-})
-
-UserProfile.belongsTo(Group, {
-    foreignKey: 'group_id',
-})
-
 UserPost.hasMany(PostLike, {
     foreignKey: 'post_id',
     onDelete: 'CASCADE'

@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const { UserProfile, UserPost, Friendship, PostLike, PostComment } = require('../models');
+const { UserProfile, Group } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        const postData = await UserPost.findAll({
+        const postData = await Group.findAll({
             include: [
                 {
                     model: UserProfile,
                     attributes: ['username'],
-                }
+                },
             ],
             order: [
                 ['created_date_time', 'DESC'],
