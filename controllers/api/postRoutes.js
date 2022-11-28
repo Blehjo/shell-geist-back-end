@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserPost } = require('../../models');
+const { UserPost, UserProfile } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -19,12 +19,16 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:profile_id/:id', async (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/login');
     } else {
         try {
-            const postData = await UserPost.findByPk(req.params.id);
+            const postData = await UserPost.findAll({
+                where: {
+                    profile_id: req.params.profile_id,
+                    id: req.params.id
+            }});
             res.json(postData);
         } catch (err) {
             console.log(err);
@@ -49,9 +53,13 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:profile_id/:id', async (req, res) => {
     try {
-        const postData = await UserPost.findByPk(req.params.id);
+        const postData = await UserPost.findAll({
+            where: {
+                profile_id: req.params.profile_id,
+                id: req.params.id
+        }});
         postData.set(req.body);
         await postData.save();
         res.status(200).json(postData);
@@ -61,11 +69,12 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:profile_id/:id', async (req, res) => {
     try {
         const postData = await UserPost.destroy({
             where: {
                 id: req.params.id,
+                profile_id: req.params.profile_id,
                 user_id: req.session.user_id,
             },
         });
