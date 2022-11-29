@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Group } = require('../../models');
+const { Group, GroupChannel } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -21,7 +21,14 @@ router.get('/:id', async (req, res) => {
       res.redirect('/login');
     } else {
         try {
-            const groupData = await Group.findByPk(req.params.id);
+            const groupData = await Group.findByPk(req.params.id, {
+                include: [
+                    {
+                        model: GroupChannel,
+                        attributes: ['channel_name', 'channel_description']
+                    }
+                ]
+            });
             res.json(groupData);
         } catch (err) {
             console.log(err);

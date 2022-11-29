@@ -6,6 +6,8 @@ const seedGames = require('./gameSeed');
 const seedComments = require('./commentSeed');
 const seedLikes = require('./likeSeed');
 const seedFriendships = require('./friendshipSeed');
+const seedChannels = require('./channelSeed');
+const seedChannelComments = require('./channelCommentSeed');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -15,6 +17,10 @@ const seedAll = async () => {
   await seedPosts();
   
   await seedGroups();
+
+  await seedChannels();
+
+  await seedChannelComments();
 
   await seedGames();
   
