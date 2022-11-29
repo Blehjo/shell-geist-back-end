@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
                 include: [
                     {
                         model: GroupChannel,
-                        attributes: ['channel_name', 'channel_description']
+                        attributes: ['channel_name', 'channel_description', 'id']
                     }
                 ]
             });
