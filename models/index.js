@@ -102,6 +102,15 @@ ChatMember.belongsTo(UserProfile, {
     foreignKey: 'profile_id'
 })
 
+Conversation.hasMany(ChatMember, {
+    foreignKey: 'conversation_id',
+    onDelete: 'CASCADE'
+})
+
+ChatMember.belongsTo(Conversation, {
+    foreignKey: 'conversation_id'
+})
+
 UserProfile.hasMany(GroupMember, {
     foreignKey: 'profile_id',
     onDelete: 'CASCADE'
@@ -144,15 +153,6 @@ Conversation.hasMany(Message, {
 })
 
 Message.belongsTo(Conversation, {
-    foreignKey: 'conversation_id'
-})
-
-Conversation.hasMany(GroupMember, {
-    foreignKey: 'conversation_id',
-    onDelete: 'CASCADE'
-})
-
-GroupMember.belongsTo(Conversation, {
     foreignKey: 'conversation_id'
 })
 

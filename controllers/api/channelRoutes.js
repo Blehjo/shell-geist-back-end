@@ -70,7 +70,7 @@ router.delete('/:id', async (req, res) => {
             },
         });
         if (!channelData) {
-            res.status(404).json({ message: 'No Group found!' });
+            res.status(404).json({ message: 'Try again in a bit, please.' });
             return;
         }
         res.status(200).json(channelData);
