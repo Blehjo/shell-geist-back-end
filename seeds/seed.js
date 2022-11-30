@@ -8,6 +8,10 @@ const seedLikes = require('./likeSeed');
 const seedFriendships = require('./friendshipSeed');
 const seedChannels = require('./channelSeed');
 const seedChannelComments = require('./channelCommentSeed');
+const seedConversations = require('./conversationSeed');
+const seedChatMembers = require('./chatMemberSeed');
+const seedGroupMembers = require('./groupMemberSeed');
+const seedMessages = require('./messageSeed');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -29,6 +33,14 @@ const seedAll = async () => {
   await seedLikes();
   
   await seedFriendships();
+  
+  await seedConversations();
+
+  await seedChatMembers();
+  
+  await seedGroupMembers();
+
+  await seedMessages();
 
   process.exit(0);
 };
