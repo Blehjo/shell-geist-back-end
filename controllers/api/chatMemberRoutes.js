@@ -33,26 +33,26 @@ router.get('/', async (req, res) => {
 router.get('/:group_id', async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/login');
-  } else {
-      try {
-          const userData = await ChatMember.findByPk(req.params.group_id, {
-            include: [
-                {
-                    model: UserProfile,
-                    attributes: ['username']
-                },
-                {
-                    model: Conversation,
-                    attributes: ['conversation_name']
-                }
-            ],
-          });
-          res.json(userData);
-      } catch (err) {
-          console.log(err);
-          res.status(500).json(err);
-      }
-  }
+    } else {
+        try {
+            const userData = await ChatMember.findByPk(req.params.group_id, {
+                include: [
+                    {
+                        model: UserProfile,
+                        attributes: ['username']
+                    },
+                    {
+                        model: Conversation,
+                        attributes: ['conversation_name']
+                    }
+                ],
+            });
+            res.json(userData);
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    }
 });
 
 router.post('/', async (req, res) => {
@@ -70,11 +70,11 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:group_id', async (req, res) => {
   try {
       const userData = await ChatMember.destroy({
           where: {
-              id: req.params.id,
+              id: req.params.group_id,
               user_id: req.session.user_id,
           },
       });
