@@ -47,7 +47,31 @@ The application is deployed [here](https://)
 ![Landing Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/parttwo.png) 
 
 &nbsp;
+![Groups Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/groups.png) 
+
+&nbsp;
+![Groups Page Continued](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/groupspage.png) 
+
+&nbsp;
+![Interactions Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/interactionspage.png) 
+
+&nbsp;
+![User Interfaces](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/interfaces.png) 
+
+&nbsp;
 ![Explore Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/explorepage.png)
+
+&nbsp;
+![Messages Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/messagespage.png)
+
+&nbsp;
+![Search Page](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/searchpage.png)
+
+&nbsp;
+![Search Page Continued](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/searchpage2.png)
+
+&nbsp;
+![Search Page Continued](https://raw.githubusercontent.com/Blehjo/shell-geist-back-end/main/.github/images/searchpage3.png)
 
 &nbsp;
 > Log in & Sign Up
