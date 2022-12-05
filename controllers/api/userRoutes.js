@@ -25,7 +25,11 @@ router.get('/:id', async (req, res) => {
     res.redirect('/login');
   } else {
       try {
-          const userData = await UserProfile.findByPk(req.params.id);
+          const userData = await UserProfile.findAll({
+            where: {
+              username: req.body.username
+            }
+            });
           res.json(userData);
       } catch (err) {
           console.log(err);
@@ -51,7 +55,11 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await UserProfile.findOne({ where: { email: req.body.email } });
+    const userData = await UserProfile.findOne({ 
+      where: { 
+        email: req.body.email 
+      } 
+    });
 
     if (!userData) {
       res
@@ -65,7 +73,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again', password: req.body.password });
       return;
     }
 
@@ -73,7 +81,7 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.status(200).json({ user: userData, message: 'You are now logged in!' });
     });
 
   } catch (err) {

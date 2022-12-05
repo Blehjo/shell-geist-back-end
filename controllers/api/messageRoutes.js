@@ -1,9 +1,12 @@
 const router = require('express').Router();
 const { Message } = require('../../models');
 
-router.get('/', async (req, res) => {
+router.get('/:conversation_id', async (req, res) => {
     try {
         const messageData = await Message.findAll({
+            where: {
+                conversation_id: req.params.conversation_id
+            },
             order: [
                 ['sent_datetime', 'DESC'],
             ],
@@ -22,7 +25,7 @@ router.get('/', async (req, res) => {
 router.post('/:conversation_id', async (req, res) => {
     try {
         const messageData = await Message.create({
-            from_profile: req.body.from_profile,
+            from_profile: req.session.user_id,
             conversation_id: req.params.conversation_id,
             message_text: req.body.message_text,
         });

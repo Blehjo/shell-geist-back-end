@@ -1,14 +1,18 @@
 const router = require('express').Router();
-const { Conversation, Message } = require('../../models');
+const { Conversation, Message, ChatMember } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
         const commentData = await Conversation.findAll({
-            attributes: ['id'],
-            include: {
-                model: Message,
-                attributes: ['from_profile', 'message_text', 'sent_datetime']
-            },
+            include: [
+                {
+                    model: Message,
+                    attributes: ['from_profile', 'message_text', 'sent_datetime']
+                },
+                {
+                    model: ChatMember
+                }
+            ],
             order: [
                 ['id', 'DESC'],
             ],
@@ -29,15 +33,23 @@ router.get('/:id', async (req, res) => {
       res.redirect('/login');
     } else {
         try {
-            const conversationdata = await Conversation.findByPk(req.params.id, {
+            const conversationdata = await Conversation.findAll({
                 attributes: ['id'],
-            include: {
-                model: Message,
-                attributes: ['from_profile', 'message_text', 'sent_datetime']
-            },
-            order: [
-                ['id', 'DESC'],
-            ],
+                include: [
+                    {
+                        model: Message,
+                        attributes: ['from_profile', 'message_text', 'sent_datetime'],
+                    },
+                    {
+                        model: ChatMember,
+                        where: {
+                            profile_id: req.sessions.user_id
+                        },
+                    }
+                ],
+                order: [
+                    ['id', 'DESC'],
+                ],
             });
             res.json(conversationdata);
         } catch (err) {
