@@ -19,12 +19,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/:from_profile/:conversation_id', async (req, res) => {
+router.post('/:conversation_id', async (req, res) => {
     try {
         const messageData = await Message.create({
-            from_profile: req.params.from_profile,
-            message_text: req.body.message_text,
+            from_profile: req.body.from_profile,
             conversation_id: req.params.conversation_id,
+            message_text: req.body.message_text,
         });
         res.status(200).json(messageData);
     } catch (err) {

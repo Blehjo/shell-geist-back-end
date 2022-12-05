@@ -103,6 +103,9 @@ const userprofiledata = [
   }
 ]
 
-const seedProfiles = () => UserProfile.bulkCreate(userprofiledata);
+const seedProfiles = () => UserProfile.bulkCreate(userprofiledata, {
+  individualHooks: true,
+  returning: true,
+});
 
 module.exports = seedProfiles;
