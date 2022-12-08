@@ -1,6 +1,6 @@
 # Shell Geist
 
-  ![Shell Geist's logo](https://drive.google.com/file/d/1RC9_sx1ISGCp7hN_z14AhZ3-RE2350ih/view?usp=sharing)
+  <img src="./.github/images/logo.png" width="83" alt="Shell Geist's logo" />
   
   ![License: MIT](<https://img.shields.io/badge/License-MIT-yellow.svg>)
   
@@ -12,7 +12,7 @@
 
   [React](https://reactjs.org/), [Bootstrap](https://react-bootstrap.github.io/), [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/), and [Sequelize](https://www.sequelize.org/) were used to create this application.
 
- The deployed site can be found [here](https://discord.gg/sKywbh5R).
+ The deployed site can be found [here](https://www.shellgeist.com).
 
 
   &nbsp;
