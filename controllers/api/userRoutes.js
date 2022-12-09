@@ -4,7 +4,7 @@ const { UserProfile, UserPost, Game, Friendship } = require('../../models');
 router.get('/', async (req, res) => {
     try {
         const postData = await UserProfile.findAll({
-            attributes: { exclude: ['id', 'date_of_birth', 'password', 'email', 'last_name']},
+            attributes: { exclude: ['date_of_birth', 'password', 'email', 'last_name']},
             include: [
               {
                 model: UserPost

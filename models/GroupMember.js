@@ -19,6 +19,13 @@ GroupMember.init(
                 key: 'id'
             },
         },
+        event_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'event',
+                key: 'id'
+            },
+        },
         joined_datetime: {
             type: DataTypes.DATE,
             allowNull: false,

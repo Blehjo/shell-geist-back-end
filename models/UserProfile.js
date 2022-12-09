@@ -47,6 +47,10 @@ UserProfile.init(
         last_name: {
             type: DataTypes.STRING,
             allowNull: false,
+        }, 
+        about: {
+            type: DataTypes.STRING,
+            allowNull: true,
         }
     },
     {

@@ -4,13 +4,14 @@ const Friendship = require('./Friendship');
 const PostComment = require('./PostComment');
 const PostLike = require('./PostLike');
 const Group = require('./Group');
-const GroupChannel = require('./GroupChannel');
-const ChannelComment = require('./ChannelComment');
-const Game = require('./Game');
-const Message = require('./Message');
 const GroupMember = require('./GroupMember');
+const GroupChannel = require('./GroupChannel');
+const Event = require('./Event');
+const ChannelComment = require('./ChannelComment');
 const Conversation = require('./Conversation');
 const ChatMember = require('./ChatMember');
+const Game = require('./Game');
+const Message = require('./Message');
 
 UserProfile.hasMany(UserPost, {
     foreignKey: 'profile_id',
@@ -120,6 +121,24 @@ GroupMember.belongsTo(UserProfile, {
     foreignKey: 'profile_id'
 })
 
+UserProfile.hasMany(Event, {
+    foreignKey: 'profile_id',
+    onDelete: 'CASCADE'
+})
+
+Event.belongsTo(UserProfile, {
+    foreignKey: 'profile_id'
+})
+
+Group.hasMany(Event, {
+    foreignKey: 'group_id',
+    onDelete: 'CASCADE'
+})
+
+Event.belongsTo(Group, {
+    foreignKey: 'group_id'
+})
+
 Group.hasMany(GroupMember, {
     foreignKey: 'group_id',
     onDelete: 'CASCADE'
@@ -156,4 +175,13 @@ Message.belongsTo(Conversation, {
     foreignKey: 'conversation_id'
 })
 
-module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike, Group, Game, GroupChannel, ChannelComment, Message, GroupMember, Conversation, ChatMember };
+Event.hasMany(GroupMember, {
+    foreignKey: 'event_id',
+    onDelete: 'CASCADE'
+})
+
+GroupMember.belongsTo(Event, {
+    foreignKey: 'event_id'
+})
+
+module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike, Group, Game, GroupChannel, ChannelComment, Message, GroupMember, Conversation, ChatMember, Event };

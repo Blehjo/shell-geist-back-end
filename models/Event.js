@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
 
-class Game extends Model { }
+class Event extends Model { }
 
-Game.init(
+Event.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -12,16 +12,20 @@ Game.init(
             autoIncrement: true,
             allowNull: false
         },
-        profile_id: {
+        group_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'userprofile',
+                model: 'group',
                 key: 'id',
             },
         },
-        title: {
+        event_name: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        event_description: {
+            type: DataTypes.STRING,
+            allowNull: true,
         },
         media_location_url: {
             type: DataTypes.STRING,
@@ -33,8 +37,8 @@ Game.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'game',
+        modelName: 'event',
     }
 );
 
-module.exports = Game;
+module.exports = Event;
