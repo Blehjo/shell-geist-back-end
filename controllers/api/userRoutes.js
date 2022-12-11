@@ -32,13 +32,13 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/login');
-  } else {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/login');
+  // } else {
       try {
           const userData = await UserProfile.findAll({
             where: {
-              username: req.body.username
+              id: req.params.id
             }
             });
           res.json(userData);
@@ -46,7 +46,7 @@ router.get('/:id', async (req, res) => {
           console.log(err);
           res.status(500).json(err);
       }
-  }
+  // }
 });
 
 router.post('/', async (req, res) => {
