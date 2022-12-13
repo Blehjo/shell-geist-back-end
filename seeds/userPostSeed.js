@@ -7,6 +7,11 @@ const userpostdata = [
         "media_location_url": "",
     },
     {
+        "profile_id": 11,
+        "written_text": "Not my favorite game, but definitely worth a play. I'm knew to single player games. Felt that I needed a break from competitive gaming and the toxicity that comes with it",
+        "media_location_url": "",
+    },
+    {
         "profile_id": 2,
         "written_text": "Has anyone played Callisto Protocol?",
         "media_location_url": "",
