@@ -8,7 +8,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Leanne",
-    "last_name": "Graham"
+    "last_name": "Graham",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   },
   {
     "username": "Antonette",
@@ -17,7 +19,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Ervin",
-    "last_name": "Howell"
+    "last_name": "Howell",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   },
   {
     "username": "Samantha",
@@ -26,7 +30,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Clementine",
-    "last_name": "Bauch"
+    "last_name": "Bauch",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   },
   {
     "username": "Karianne",
@@ -35,7 +41,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Patricia",
-    "last_name": "Lebsack"
+    "last_name": "Lebsack",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   },
   {
     "username": "Kamren",
@@ -44,7 +52,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Chelsey",
-    "last_name": "Dietrich"
+    "last_name": "Dietrich",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   },
   {
     "username": "Leopoldo_Corkery",
@@ -53,7 +63,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Dennis",
-    "last_name":"Schulist"
+    "last_name":"Schulist",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   },
   {
     "username": "Elwyn.Skiles",
@@ -62,7 +74,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Kurtis",
-    "last_name": "Weissnat"
+    "last_name": "Weissnat",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   },
   {
     "username": "Maxime_Nienow",
@@ -71,7 +85,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Nicholas",
-    "last_name":"Runolfsdottir V"
+    "last_name":"Runolfsdottir V",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   },
   {
     "username": "Delphine",
@@ -80,7 +96,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Glenna",
-    "last_name": "Reichert"
+    "last_name": "Reichert",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   },
   {
     "username": "Moriah.Stanton",
@@ -89,7 +107,9 @@ const userprofiledata = [
     "country": "America",
     "date_of_birth": 1,
     "first_name": "Clementina",
-    "last_name": "DuBuque"
+    "last_name": "DuBuque",
+    "about": "Hey there! I am a programmer",
+    "media_location_url": ""
   }
 ]
 

@@ -51,6 +51,10 @@ UserProfile.init(
         about: {
             type: DataTypes.STRING,
             allowNull: true,
+        },
+        media_location: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     },
     {

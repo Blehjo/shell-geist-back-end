@@ -29,9 +29,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/login');
-    } else {
+    // if (req.session.loggedIn) {
+    //   res.redirect('/login');
+    // } else {
         try {
             const conversationdata = await Conversation.findAll({
                 attributes: ['id'],
@@ -56,7 +56,7 @@ router.get('/:id', async (req, res) => {
             console.log(err);
             res.status(500).json(err);
         }
-    }
+    // }
 });
 
 router.post('/:id', async (req, res) => {
