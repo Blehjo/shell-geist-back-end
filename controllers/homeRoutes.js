@@ -48,7 +48,7 @@ router.get('/posts', async (req, res) => {
 router.get('/users', async (req, res) => {
     try {
         const postData = await UserProfile.findAll({
-            attributes: { exclude: ['date_of_birth', 'password', 'email', 'last_name']},
+            attributes: ['username', 'date_of_birth', 'first_name', 'about'],
             include: [
               {
                 model: UserPost
@@ -61,7 +61,7 @@ router.get('/users', async (req, res) => {
               }
             ],
             order: [
-                ['id', 'DESC'],
+                ['username', 'DESC'],
             ],
         });
 
