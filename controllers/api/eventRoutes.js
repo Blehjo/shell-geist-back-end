@@ -9,7 +9,10 @@ router.get('/', async (req, res) => {
                 model: Group
               },
               {
-                model: GroupMember
+                model: GroupMember,
+                where: {
+                    profile_id: req.session.user_id
+                }
               },
             ],
             order: [

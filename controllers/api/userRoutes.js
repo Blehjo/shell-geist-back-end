@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserProfile, UserPost, Game, Friendship } = require('../../models');
+const { UserProfile, UserPost, Game, Friendship, Group } = require('../../models');
 
 router.get('/', async (req, res) => {
   if (req.session.loggedIn) {
@@ -19,6 +19,9 @@ router.get('/', async (req, res) => {
               },
               {
                 model: Friendship
+              },
+              {
+                model: Group
               }
             ],
             });

@@ -1,5 +1,31 @@
 const router = require('express').Router();
-const { UserProfile, UserPost, Game, Friendship } = require('../models');
+const { UserProfile, UserPost, Game, Friendship, Group, GroupMember, Event } = require('../models');
+
+router.get('/events', async (req, res) => {
+    try {
+        const eventData = await Event.findAll({
+            include: [
+              {
+                model: Group
+              },
+              {
+                model: GroupMember
+              },
+            ],
+            order: [
+                ['id', 'ASC'],
+            ],
+        });
+
+        const events = eventData.map((post) => post.get({ plain: true }))
+        res.json(
+            events
+        )
+        console.log(events)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
 
 router.get('/posts', async (req, res) => {
     try {
@@ -49,28 +75,30 @@ router.get('/users', async (req, res) => {
     }
 });
 
-// router.get('/', async (req, res) => {
-//     try {
-//         const postData = await Group.findAll({
-//             include: [
-//                 {
-//                     model: UserProfile,
-//                     attributes: ['username'],
-//                 },
-//             ],
-//             order: [
-//                 ['created_date_time', 'DESC'],
-//             ],
-//         });
+router.get('/groups', async (req, res) => {
+    try {
+        const postData = await Group.findAll({
+            include: [
+                {
+                    model: UserProfile,
+                },
+                {
+                    model: GroupMember,
+                },
+            ],
+            order: [
+                ['created_date_time', 'DESC'],
+            ],
+        });
 
-//         const posts = postData.map((post) => post.get({ plain: true }))
-//         res.json(
-//             posts
-//         )
-//         console.log(posts)
-//     } catch (err) {
-//         res.status(500).json(err)
-//     }
-// });
+        const posts = postData.map((post) => post.get({ plain: true }))
+        res.json(
+            posts
+        )
+        console.log(posts)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
 
 module.exports = router;

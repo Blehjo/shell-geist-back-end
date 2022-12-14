@@ -3,14 +3,16 @@ const { Conversation, Message, ChatMember } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-        const commentData = await Conversation.findAll({
+        const conversationData = await Conversation.findAll({
             include: [
                 {
                     model: Message,
-                    attributes: ['from_profile', 'message_text', 'sent_datetime']
                 },
                 {
-                    model: ChatMember
+                    model: ChatMember,
+                    where: {
+                        profile_id: req.session.user_id
+                    }
                 }
             ],
             order: [
@@ -18,7 +20,7 @@ router.get('/', async (req, res) => {
             ],
         });
 
-        const posts = commentData.map((post) => post.get({ plain: true }))
+        const posts = conversationData.map((post) => post.get({ plain: true }))
         res.json(
             posts
         )
@@ -29,16 +31,15 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    // if (req.session.loggedIn) {
-    //   res.redirect('/login');
-    // } else {
+    if (req.session.loggedIn) {
+      res.redirect('/login');
+    } else {
         try {
             const conversationdata = await Conversation.findAll({
                 attributes: ['id'],
                 include: [
                     {
                         model: Message,
-                        attributes: ['from_profile', 'message_text', 'sent_datetime'],
                     },
                     {
                         model: ChatMember,
@@ -56,15 +57,15 @@ router.get('/:id', async (req, res) => {
             console.log(err);
             res.status(500).json(err);
         }
-    // }
+    }
 });
 
 router.post('/:id', async (req, res) => {
     try {
-        const commentData = await Conversation.create({
+        const conversationData = await Conversation.create({
             conversation_name: req.body.conversation_name,
         });
-        res.status(200).json(commentData);
+        res.status(200).json(conversationData);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
