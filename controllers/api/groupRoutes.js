@@ -1,9 +1,12 @@
 const router = require('express').Router();
-const { Group, GroupChannel } = require('../../models');
+const { Group, GroupChannel, GroupMember } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
         const groupData = await Group.findAll({
+            include: {
+                model: GroupMember
+            },
             order: [
                 ['created_date_time', 'DESC'],
             ],
