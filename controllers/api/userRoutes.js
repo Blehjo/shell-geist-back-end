@@ -1,36 +1,6 @@
 const router = require('express').Router();
 const { UserProfile, UserPost, Game, Friendship } = require('../../models');
 
-// router.get('/', async (req, res) => {
-//     try {
-//         const postData = await UserProfile.findAll({
-//             attributes: { exclude: ['date_of_birth', 'password', 'email', 'last_name']},
-//             include: [
-//               {
-//                 model: UserPost
-//               },
-//               {
-//                 model: Game
-//               },
-//               {
-//                 model: Friendship
-//               }
-//             ],
-//             order: [
-//                 ['id', 'DESC'],
-//             ],
-//         });
-
-//         const posts = postData.map((post) => post.get({ plain: true }))
-//         res.json(
-//             posts
-//         )
-//         console.log(posts)
-//     } catch (err) {
-//         res.status(500).json(err)
-//     }
-// });
-
 router.get('/', async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/login');

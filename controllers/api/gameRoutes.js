@@ -4,9 +4,12 @@ const { Game } = require('../../models');
 router.get('/', async (req, res) => {
     try {
         const gameData = await Game.findAll({
-            order: [
-                ['created_date_time', 'DESC'],
-            ],
+            where: {
+                profile_id: req.session.user_id
+            },
+            // order: [
+            //     ['created_date_time', 'DESC'],
+            // ],
         });
 
         const groups = gameData.map((post) => post.get({ plain: true }));
