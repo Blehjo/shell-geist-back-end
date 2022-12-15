@@ -33,6 +33,38 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/login');
+  } else {
+      try {
+          const userData = await UserProfile.findAll({
+            where: {
+              id: req.params.id
+            },
+            include: [
+              {
+                model: UserPost
+              },
+              {
+                model: Game
+              },
+              {
+                model: Friendship
+              },
+              {
+                model: Group
+              }
+            ],
+            });
+          res.json(userData);
+      } catch (err) {
+          console.log(err);
+          res.status(500).json(err);
+      }
+  }
+});
+
 router.post('/', async (req, res) => {
   try {
     const userData = await UserProfile.create(req.body);
