@@ -9,7 +9,11 @@ router.get('/', async (req, res) => {
             const postData = await UserPost.findAll({
                 where: {
                     profile_id: req.session.user_id,
-            }});
+                },
+                order: [
+                    ['id', 'DESC']
+                ]
+            });
             res.json(postData);
         } catch (err) {
             console.log(err);
