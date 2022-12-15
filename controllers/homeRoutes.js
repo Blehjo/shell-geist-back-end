@@ -100,6 +100,11 @@ router.get('/events', async (req, res) => {
 router.get('/posts', async (req, res) => {
     try {
         const postData = await UserPost.findAll({
+            include: [
+                {
+                    model: UserProfile
+                }
+            ],
             order: [
                 ['created_date_time', 'DESC'],
             ],
