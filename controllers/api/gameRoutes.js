@@ -7,9 +7,9 @@ router.get('/', async (req, res) => {
             where: {
                 profile_id: req.session.user_id
             },
-            // order: [
-            //     ['created_date_time', 'DESC'],
-            // ],
+            order: [
+                ['id', 'DESC'],
+            ],
         });
 
         const groups = gameData.map((post) => post.get({ plain: true }));
@@ -35,7 +35,11 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const gameData = await Game.create(req.body);
+        const gameData = await Game.create({
+            profile_id: req.session.user_id,
+            title: req.body.title,
+            media_location_url: req.body.media_location_url
+        });
         res.status(200).json(gameData);
     } catch (err) {
         console.log(err);
@@ -48,7 +52,7 @@ router.delete('/:id', async (req, res) => {
         const gameData = await Game.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
+                profile_id: req.session.user_id,
             },
         });
         if (!gameData) {
