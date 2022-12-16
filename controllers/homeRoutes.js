@@ -150,6 +150,12 @@ router.get('/users', async (req, res) => {
               },
               {
                 model: Friendship
+              },
+              {
+                model: Group
+              },
+              {
+                model: GroupMember
               }
             ],
             order: [

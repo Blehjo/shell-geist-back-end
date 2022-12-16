@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserProfile, UserPost, Game, Friendship, Group } = require('../../models');
+const { UserProfile, UserPost, Game, Friendship, Group, GroupMember } = require('../../models');
 
 router.get('/', async (req, res) => {
   if (req.session.loggedIn) {
@@ -39,12 +39,15 @@ router.get('/:id', async (req, res) => {
   } else {
       try {
           const userData = await UserProfile.findAll({
-            where: {
-              id: req.params.id
-            },
+            // where: {
+            //   id: req.params.id
+            // },
             include: [
               {
                 model: UserPost
+              },
+              {
+                model: Group
               },
               {
                 model: Game
@@ -53,7 +56,10 @@ router.get('/:id', async (req, res) => {
                 model: Friendship
               },
               {
-                model: Group
+                model: GroupMember,
+                where: {
+                  profile_id: req.params.id
+                }
               }
             ],
             });
