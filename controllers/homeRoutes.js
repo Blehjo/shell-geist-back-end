@@ -120,6 +120,38 @@ router.get('/posts', async (req, res) => {
     }
 });
 
+router.get('/interactions', async (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/login');
+    } else {
+        try {
+            const postData = await UserPost.findAll({
+                include: [
+                    {
+                        model: PostLike,
+                        where: {
+                            profile_id: req.session.user_id
+                        }
+                    },
+                    {
+                        model: PostComment,
+                        where: {
+                            profile_id: req.session.user_id
+                        }
+                    }
+                ],
+                order: [
+                    ['id', 'DESC']
+                ]
+            });
+            res.json(postData);
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    }
+});
+
 router.get('/posts/:id', async (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/login');
