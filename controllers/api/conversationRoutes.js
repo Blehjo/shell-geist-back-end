@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Conversation, Message, ChatMember } = require('../../models');
+const { Conversation, Message, ChatMember, UserProfile } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -30,29 +30,29 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:conversation_id', async (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/login');
     } else {
         try {
             const conversationdata = await Conversation.findAll({
-                attributes: ['id'],
+                where: {
+                    id: req.params.conversation_id
+                },
                 include: [
                     {
                         model: Message,
                     },
                     {
                         model: ChatMember,
-                        where: {
-                            profile_id: req.sessions.user_id
-                        },
-                    }
+                    },
                 ],
-                order: [
-                    ['id', 'DESC'],
-                ],
+                // order: [
+                //     ['id', 'DESC'],
+                // ],
             });
             res.json(conversationdata);
+            console.log(conversationdata);
         } catch (err) {
             console.log(err);
             res.status(500).json(err);
@@ -60,10 +60,10 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/:id', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const conversationData = await Conversation.create({
-            conversation_name: req.body.conversation_name,
+            conversation_name: req.session.user_id,
         });
         res.status(200).json(conversationData);
     } catch (err) {

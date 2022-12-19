@@ -55,16 +55,16 @@ router.get('/:group_id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/:conversation_id', async (req, res) => {
   try {
-    const userData = await ChatMember.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
+    const userData = await ChatMember.create({
+        profile_id: req.session.user_id,
+        conversation_id: req.params.conversation_id,
     });
+    res.json(
+        userData
+    )
+    console.log(userData);
   } catch (err) {
     res.status(400).json(err);
   }
