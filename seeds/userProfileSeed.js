@@ -10,7 +10,7 @@ const userprofiledata = [
     "first_name": "Leanne",
     "last_name": "Graham",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   },
   {
     "username": "Antonette",
@@ -21,7 +21,7 @@ const userprofiledata = [
     "first_name": "Ervin",
     "last_name": "Howell",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   },
   {
     "username": "Samantha",
@@ -32,7 +32,7 @@ const userprofiledata = [
     "first_name": "Clementine",
     "last_name": "Bauch",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   },
   {
     "username": "Karianne",
@@ -43,7 +43,7 @@ const userprofiledata = [
     "first_name": "Patricia",
     "last_name": "Lebsack",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   },
   {
     "username": "Kamren",
@@ -54,7 +54,7 @@ const userprofiledata = [
     "first_name": "Chelsey",
     "last_name": "Dietrich",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   },
   {
     "username": "Leopoldo_Corkery",
@@ -65,7 +65,7 @@ const userprofiledata = [
     "first_name": "Dennis",
     "last_name":"Schulist",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   },
   {
     "username": "Elwyn.Skiles",
@@ -76,7 +76,7 @@ const userprofiledata = [
     "first_name": "Kurtis",
     "last_name": "Weissnat",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   },
   {
     "username": "Maxime_Nienow",
@@ -87,7 +87,7 @@ const userprofiledata = [
     "first_name": "Nicholas",
     "last_name":"Runolfsdottir V",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   },
   {
     "username": "Delphine",
@@ -98,7 +98,7 @@ const userprofiledata = [
     "first_name": "Glenna",
     "last_name": "Reichert",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   },
   {
     "username": "Moriah.Stanton",
@@ -109,7 +109,7 @@ const userprofiledata = [
     "first_name": "Clementina",
     "last_name": "DuBuque",
     "about": "Hey there! I am a programmer",
-    "media_location_url": ""
+    "media_location_url": "https://i.imgur.com/v3viNdd.jpg"
   }
 ]
 

@@ -13,6 +13,7 @@ const seedChatMembers = require('./chatMemberSeed');
 const seedGroupMembers = require('./groupMemberSeed');
 const seedMessages = require('./messageSeed');
 const seedEvents = require('./eventSeed');
+const seedEventMembers = require('./eventMemberSeed');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -44,6 +45,8 @@ const seedAll = async () => {
   await seedMessages();
 
   await seedEvents();
+
+  await seedEventMembers();
 
   process.exit(0);
 };

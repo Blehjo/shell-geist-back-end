@@ -7,6 +7,7 @@ const Group = require('./Group');
 const GroupMember = require('./GroupMember');
 const GroupChannel = require('./GroupChannel');
 const Event = require('./Event');
+const EventMember = require('./EventMember');
 const ChannelComment = require('./ChannelComment');
 const Conversation = require('./Conversation');
 const ChatMember = require('./ChatMember');
@@ -148,6 +149,15 @@ GroupMember.belongsTo(Group, {
     foreignKey: 'group_id'
 })
 
+Event.hasMany(EventMember, {
+    foreignKey: 'event_id',
+    onDelete: 'CASCADE'
+})
+
+EventMember.belongsTo(Event, {
+    foreignKey: 'event_id'
+})
+
 UserPost.hasMany(PostLike, {
     foreignKey: 'post_id',
     onDelete: 'CASCADE'
@@ -175,13 +185,4 @@ Message.belongsTo(Conversation, {
     foreignKey: 'conversation_id'
 })
 
-Event.hasMany(GroupMember, {
-    foreignKey: 'event_id',
-    onDelete: 'CASCADE'
-})
-
-GroupMember.belongsTo(Event, {
-    foreignKey: 'event_id'
-})
-
-module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike, Group, Game, GroupChannel, ChannelComment, Message, GroupMember, Conversation, ChatMember, Event };
+module.exports = { UserProfile, UserPost, Friendship, PostComment, PostLike, Group, Game, GroupChannel, ChannelComment, Message, GroupMember, Conversation, ChatMember, Event, EventMember };

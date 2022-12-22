@@ -19,6 +19,13 @@ Event.init(
                 key: 'id',
             },
         },
+        profile_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'userprofile',
+                key: 'id',
+            },
+        },
         event_name: {
             type: DataTypes.STRING,
             allowNull: false,
