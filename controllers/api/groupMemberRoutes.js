@@ -45,13 +45,9 @@ router.get('/:profile_id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const userData = await GroupMember.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
+    const userData = await GroupMember.create({
+      profile_id: req.session.user_id,
+      group_id: req.body.group_id,
     });
   } catch (err) {
     res.status(400).json(err);

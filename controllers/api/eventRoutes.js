@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Event, Group, GroupMember } = require('../../models');
+const { Event, Group, EventMember } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
                 model: Group
               },
               {
-                model: GroupMember,
+                model: EventMember,
                 where: {
                     profile_id: req.session.user_id
                 }

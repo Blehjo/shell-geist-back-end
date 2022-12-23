@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserProfile, UserPost, Game, Friendship, Group, GroupMember, Event } = require('../models');
+const { UserProfile, UserPost, Game, Friendship, Group, GroupMember, Event, EventMember } = require('../models');
 
 router.get('/events/:id', async (req, res) => {
     try {
@@ -9,7 +9,7 @@ router.get('/events/:id', async (req, res) => {
                 model: Group
               },
               {
-                model: GroupMember,
+                model: EventMember,
                 where: {
                     profile_id: req.session.user_id
                 }
@@ -79,7 +79,7 @@ router.get('/events', async (req, res) => {
                 model: Group
               },
               {
-                model: GroupMember
+                model: EventMember
               },
             ],
             order: [
@@ -208,6 +208,35 @@ router.get('/users', async (req, res) => {
 router.get('/groups', async (req, res) => {
     try {
         const postData = await Group.findAll({
+            include: [
+                {
+                    model: UserProfile,
+                },
+                {
+                    model: GroupMember,
+                },
+            ],
+            order: [
+                ['created_date_time', 'DESC'],
+            ],
+        });
+
+        const posts = postData.map((post) => post.get({ plain: true }))
+        res.json(
+            posts
+        )
+        console.log(posts)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
+
+router.get('/groups/:group_name', async (req, res) => {
+    try {
+        const postData = await Group.findAll({
+            where: {
+                group_name: req.params.group_name
+            },
             include: [
                 {
                     model: UserProfile,

@@ -53,7 +53,9 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const groupData = await Group.create({
+            profile_id: req.session.user_id,
             group_name: req.body.group_name,
+            media_location_url: req.body.media_location_url,
             group_description: req.body.group_description,
             country: req.body.country,
             platform: req.body.platform,
