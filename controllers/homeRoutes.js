@@ -83,7 +83,7 @@ router.get('/events', async (req, res) => {
               },
             ],
             order: [
-                ['id', 'ASC'],
+                ['id', 'DESC'],
             ],
         });
 
