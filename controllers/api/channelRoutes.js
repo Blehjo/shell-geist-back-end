@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { GroupChannel } = require('../../models');
+const { GroupChannel, ChannelComment } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -7,6 +7,11 @@ router.get('/', async (req, res) => {
             order: [
                 ['created_date_time', 'DESC'],
             ],
+            include: [
+                {
+                    model: ChannelComment
+                }
+            ]
         });
 
         const posts = channelData.map((post) => post.get({ plain: true }))
