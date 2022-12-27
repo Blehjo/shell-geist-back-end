@@ -36,10 +36,7 @@ router.get('/:id', async (req, res) => {
                     },
                     {
                         model: GroupMember
-                    },
-                    // {
-                    //     model: ChannelComment
-                    // }
+                    }
                 ]
             });
             res.json(groupData);

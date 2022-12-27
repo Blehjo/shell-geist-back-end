@@ -34,7 +34,7 @@ router.get('/:id', async (req, res) => {
     try {
         const eventData = await Event.findAll({
         where: {
-            username: req.body.username
+            group_id: req.params.id
         }
         });
         res.json(eventData);

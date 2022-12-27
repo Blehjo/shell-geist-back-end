@@ -29,7 +29,19 @@ router.get('/:id', async (req, res) => {
       res.redirect('/login');
     } else {
         try {
-            const channelData = await GroupChannel.findByPk(req.params.id);
+            const channelData = await GroupChannel.findAll({
+                include: [
+                    {
+                        model: ChannelComment,
+                        where: {
+                            channel_id: req.params.id
+                        },
+                        order: [
+                            ['id', 'DESC'],
+                        ],
+                    }
+                ],
+            });
             res.json(channelData);
         } catch (err) {
             console.log(err);

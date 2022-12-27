@@ -19,11 +19,11 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/:profile_id/:channel_id', async (req, res) => {
+router.post('/:channel_id', async (req, res) => {
     try {
         const commentData = await ChannelComment.create({
             channel_id: req.params.channel_id,
-            profile_id: req.params.profile_id,
+            profile_id: req.session.user_id,
             channel_comment_text: req.body.channel_comment_text,
         });
         res.status(200).json(commentData);
