@@ -22,6 +22,28 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/login');
+    } else {
+        try {
+            const postData = await UserPost.findAll({
+                where: {
+                    profile_id: req.session.user_id,
+                    id: req.params.id
+                },
+                order: [
+                    ['id', 'DESC']
+                ]
+            });
+            res.json(postData);
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    }
+});
+
 router.post('/', async (req, res) => {
     try {
         const postData = await UserPost.create({

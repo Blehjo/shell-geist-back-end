@@ -26,7 +26,7 @@ Game.init(
         media_location_url: {
             type: DataTypes.STRING,
             allowNull: true,
-        },
+        }
     },
     {
         sequelize,

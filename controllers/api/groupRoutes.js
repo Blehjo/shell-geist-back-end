@@ -82,7 +82,7 @@ router.delete('/:id', async (req, res) => {
         const groupData = await Group.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
+                profile_id: req.session.user_id,
             },
         });
         if (!groupData) {
