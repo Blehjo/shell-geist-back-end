@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserProfile, UserPost, Game, Friendship, Group, GroupMember, Event, EventMember } = require('../models');
+const { UserProfile, UserPost, Game, Friendship, Group, GroupMember, Event, EventMember, PostComment } = require('../models');
 
 router.get('/events/:id', async (req, res) => {
     try {
@@ -103,6 +103,38 @@ router.get('/posts', async (req, res) => {
             include: [
                 {
                     model: UserProfile
+                },
+                {
+                    model: PostComment
+                }
+            ],
+            order: [
+                ['created_date_time', 'DESC'],
+            ],
+        });
+
+        const posts = postData.map((post) => post.get({ plain: true }))
+        res.json(
+            posts
+        )
+        console.log(posts)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
+
+router.get('/posts/:id', async (req, res) => {
+    try {
+        const postData = await UserPost.findAll({
+            where: {
+                id: req.params.id
+            },
+            include: [
+                {
+                    model: UserProfile
+                },
+                {
+                    model: PostComment
                 }
             ],
             order: [

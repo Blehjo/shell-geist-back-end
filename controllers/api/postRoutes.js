@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserPost, UserProfile } = require('../../models');
+const { UserPost, UserProfile, PostComment } = require('../../models');
 
 router.get('/', async (req, res) => {
     if (req.session.loggedIn) {
@@ -9,6 +9,9 @@ router.get('/', async (req, res) => {
             const postData = await UserPost.findAll({
                 where: {
                     profile_id: req.session.user_id,
+                },
+                include: {
+                    model: PostComment
                 },
                 order: [
                     ['id', 'DESC']
