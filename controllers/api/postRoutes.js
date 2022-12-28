@@ -32,9 +32,14 @@ router.get('/:id', async (req, res) => {
         try {
             const postData = await UserPost.findAll({
                 where: {
-                    profile_id: req.session.user_id,
-                    id: req.params.id
+                    // profile_id: req.session.user_id,
+                    profile_id: req.params.id
                 },
+                include: [
+                    {
+                        model: PostComment
+                    }
+                ],
                 order: [
                     ['id', 'DESC']
                 ]

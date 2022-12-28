@@ -33,12 +33,21 @@ PostLike.belongsTo(UserProfile, {
 })
 
 UserProfile.hasMany(Friendship, {
-    foreignKey: 'profile_id',
+    foreignKey: 'profile_request',
     onDelete: 'CASCADE'
 })
 
 Friendship.belongsTo(UserProfile, {
-    foreignKey: 'profile_id'
+    foreignKey: 'profile_request'
+})
+
+UserProfile.hasMany(Friendship, {
+    foreignKey: 'profile_accept',
+    onDelete: 'CASCADE'
+})
+
+Friendship.belongsTo(UserProfile, {
+    foreignKey: 'profile_accept'
 })
 
 UserProfile.hasMany(PostComment, {
