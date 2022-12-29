@@ -158,6 +158,15 @@ GroupMember.belongsTo(Group, {
     foreignKey: 'group_id'
 })
 
+UserProfile.hasMany(EventMember, {
+    foreignKey: 'profile_id',
+    onDelete: 'CASCADE'
+})
+
+EventMember.belongsTo(UserProfile, {
+    foreignKey: 'profile_id'
+})
+
 Event.hasMany(EventMember, {
     foreignKey: 'event_id',
     onDelete: 'CASCADE'

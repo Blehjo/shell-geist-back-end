@@ -12,6 +12,7 @@ const chatMemberRoutes = require('./chatMemberRoutes');
 const conversationRoutes = require('./conversationRoutes');
 const eventRoutes = require('./eventRoutes');
 const friendshipRoutes = require('./friendshipRoutes');
+const eventMemberRoutes = require('./eventMemberRoutes');
 
 router.use('/users', userRoutes);
 router.use('/groups', groupRoutes);
@@ -26,5 +27,6 @@ router.use('/chatmembers', chatMemberRoutes);
 router.use('/conversations', conversationRoutes);
 router.use('/events', eventRoutes);
 router.use('/friendships', friendshipRoutes);
+router.use('/eventMembers', eventMemberRoutes);
 
 module.exports = router;

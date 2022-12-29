@@ -32,7 +32,6 @@ router.get('/:id', async (req, res) => {
         try {
             const postData = await UserPost.findAll({
                 where: {
-                    // profile_id: req.session.user_id,
                     profile_id: req.params.id
                 },
                 include: [
@@ -70,11 +69,14 @@ router.put('/:id', async (req, res) => {
     try {
         const postData = await UserPost.findAll({
             where: {
+                id: req.params.id,
                 profile_id: req.session.user_id,
-                id: req.params.id
             }
         });
-        postData.set(req.body);
+        postData.set({
+            media_location_url: req.body.media_location_url,
+            written_text: req.body.written_text
+        });
         await postData.save();
         res.status(200).json(postData);
     } catch (err) {
