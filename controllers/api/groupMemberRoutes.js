@@ -54,12 +54,12 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:profile_id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
       const userData = await GroupMember.destroy({
           where: {
-              id: req.params.profile_id,
-              user_id: req.session.user_id,
+              group_id: req.params.id,
+              profile_id: req.session.user_id,
           },
       });
       if (!userData) {
