@@ -24,7 +24,11 @@ const sess = {
 
 app.use(session(sess));
 
-app.use(cors());
+let corsOptions = {
+  origin: ["https://shellgeistapi.herokuapp.com/"],
+};
+
+app.use(cors(corsOptions));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://shellgeistapi.herokuapp.com/");
   res.header(
