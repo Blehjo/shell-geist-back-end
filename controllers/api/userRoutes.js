@@ -39,9 +39,6 @@ router.get('/:id', async (req, res) => {
   } else {
       try {
           const userData = await UserProfile.findAll({
-            // where: {
-            //   id: req.params.id
-            // },
             include: [
               {
                 model: UserPost

@@ -301,6 +301,19 @@ router.post('/logout', (req, res) => {
     } else {
       res.status(404).end();
     }
-  });
+});
+
+router.get('/login', async (req, res) => {
+    try {
+        if (req.session.logged_in) {
+            res.redirect('/profile');
+            return;
+        }
+
+        res.render('login')
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
 
 module.exports = router;
