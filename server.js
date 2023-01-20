@@ -23,8 +23,8 @@ const sess = {
 };
 
 app.use(cors({
-  "origin": "*",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  origin: "https://shellgeist.com",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 }));
 
 app.use(session(sess));
