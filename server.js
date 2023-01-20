@@ -24,10 +24,6 @@ const sess = {
 
 app.use(session(sess));
 
-let corsOptions = {
-  origin: ["https://shellgeistapi.herokuapp.com/"],
-};
-
 app.use(cors());
 
 app.use(express.json());
