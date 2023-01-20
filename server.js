@@ -22,11 +22,12 @@ const sess = {
   })
 };
 
-app.use(session(sess));
-
 app.use(cors({
-  origin: '*'
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
 }));
+
+app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
