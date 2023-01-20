@@ -30,7 +30,7 @@ let corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://shellgeistapi.herokuapp.com/");
+  res.header("Access-Control-Allow-Origin", "https://shellgeist.com", "https://shellgeistapi.herokuapp.com");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
