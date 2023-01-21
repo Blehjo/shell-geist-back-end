@@ -23,7 +23,9 @@ const sess = {
 };
 
 app.use(cors({
-  origin: "https://shellgeist.com",
+  origin: [
+    "https://shellgeist.com", "https://localhost:3000"
+  ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 }));
 
