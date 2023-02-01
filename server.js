@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
+const cookieSession = require('cookie-session');
 const cors = require("cors");
 
 const routes = require('./controllers/index');
