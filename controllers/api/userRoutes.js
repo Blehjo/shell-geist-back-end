@@ -83,8 +83,8 @@ router.post('/', async (req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, Content-Type, Accept"
   );
-  next();
-  
+  // next();
+
   try {
     const userData = await UserProfile.create(req.body);
 
