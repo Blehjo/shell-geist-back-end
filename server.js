@@ -12,7 +12,6 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-
 const sess = {
   secret: 'Super secret secret',
   cookie: { secure: true },
@@ -31,11 +30,19 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(session(sess));
+app.use(
+  cookieSession({
+    name: "shellgeist-session",
+    secret: "jambalaya",
+    httpOnly: true
+  })
+);
+
+// app.use(session(sess));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 

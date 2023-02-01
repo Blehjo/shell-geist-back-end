@@ -1,6 +1,14 @@
 const router = require('express').Router();
 const { UserProfile, UserPost, Game, Friendship, Group, GroupMember } = require('../../models');
 
+router.use(function(req, res, next) {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, Content-Type, Accept"
+  );
+  next();
+});
+
 router.get('/', async (req, res) => {
   console.log("Request header: ", req);
   console.log("Response header: ", res);
