@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const { UserProfile, UserPost, Game, Friendship, Group, GroupMember } = require('../../models');
 
-router.use(function(req, res, next) {
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, Content-Type, Accept"
-  );
-  next();
-});
+// router.use(function(req, res, next) {
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, Content-Type, Accept"
+//   );
+//   next();
+// });
 
 router.get('/', async (req, res) => {
   console.log("Request header: ", req);
@@ -78,7 +78,13 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, Content-Type, Accept"
+  );
+  next();
+  
   try {
     const userData = await UserProfile.create(req.body);
 
