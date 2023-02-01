@@ -58,10 +58,7 @@ router.get('/games/:id', async (req, res) => {
         const gameData = await Game.findAll({
             where: {
                 profile_id: req.params.id
-            },
-            // order: [
-            //     ['created_date_time', 'DESC'],
-            // ],
+            }
         });
 
         const groups = gameData.map((post) => post.get({ plain: true }));
@@ -153,7 +150,7 @@ router.get('/posts/:id', async (req, res) => {
 });
 
 router.get('/interactions', async (req, res) => {
-    if (req.session.loggedIn) {
+    if (!req.session.loggedIn) {
       res.redirect('/login');
     } else {
         try {
@@ -185,7 +182,7 @@ router.get('/interactions', async (req, res) => {
 });
 
 router.get('/posts/:id', async (req, res) => {
-    if (req.session.loggedIn) {
+    if (!req.session.loggedIn) {
       res.redirect('/login');
     } else {
         try {
@@ -305,7 +302,7 @@ router.post('/logout', (req, res) => {
 
 router.get('/login', async (req, res) => {
     try {
-        if (req.session.logged_in) {
+        if (!req.session.logged_in) {
             res.redirect('/profile');
             return;
         }
