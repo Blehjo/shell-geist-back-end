@@ -78,11 +78,11 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, Content-Type, Accept"
-  );
+router.post('/', async (req, res) => {
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "Origin, Content-Type, Accept"
+  // );
   // next();
 
   try {
