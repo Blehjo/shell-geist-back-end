@@ -17,7 +17,8 @@ const sess = {
   resave: false,
   saveUninitialized: false,
   cookie: { 
-    sameSite: 'strict',
+    sameSite: 'none',
+    secure: true
   },
   store: new SequelizeStore({
     db: sequelize
