@@ -15,7 +15,7 @@ const sess = {
   secret: process.env.SECRET,
   name: 'shellgeist',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: { 
     sameSite: 'none',
     secure: true
