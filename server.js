@@ -12,10 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  secret: process.env.SECRET,
+  secret: 'process.env.SECRET',
   name: 'shellgeist',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: { 
     sameSite: 'none',
     secure: true
@@ -30,14 +30,14 @@ app.use(cors({
     "https://shellgeist.com", "http://localhost:3000"
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: true,
+  // preflightContinue: true,
   credentials: true
 }));
 
 app.use(session(sess));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
