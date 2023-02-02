@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const cookieSession = require('cookie-session');
 const cors = require("cors");
 
 const routes = require('./controllers/index');
@@ -14,7 +13,9 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
   secret: 'Super secret secret',
-  cookie: { maxAge: 60000 },
+  cookie: { 
+    sameSite: 'none'
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -26,22 +27,13 @@ app.use(cors({
   origin: [
     "https://shellgeist.com", "http://localhost:3000"
   ],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
 }));
-
-// app.use(
-//   cookieSession({
-//     name: "shellgeist-session",
-//     secret: "jambalaya",
-//     httpOnly: true
-//   })
-// );
 
 app.use(session(sess));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
