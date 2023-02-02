@@ -30,7 +30,8 @@ app.use(cors({
     "https://shellgeist.com", "http://localhost:3000"
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  // credentials: true
+  preflightContinue: true,
+  credentials: true
 }));
 
 app.use(session(sess));
