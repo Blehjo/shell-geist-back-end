@@ -10,8 +10,8 @@ const { UserProfile, UserPost, Game, Friendship, Group, GroupMember } = require(
 // });
 
 router.get('/', async (req, res) => {
-  console.log("Request header: ", req);
-  console.log("Response header: ", res);
+  // console.log("Request header: ", req);
+  // console.log("Response header: ", res);
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {

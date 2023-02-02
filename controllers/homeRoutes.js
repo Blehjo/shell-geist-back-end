@@ -289,28 +289,4 @@ router.get('/groups/:group_name', async (req, res) => {
     }
 });
 
-// Logout
-router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-});
-
-router.get('/login', async (req, res) => {
-    try {
-        if (!req.session.logged_in) {
-            res.redirect('/profile');
-            return;
-        }
-
-        res.render('login')
-    } catch (err) {
-        res.status(500).json(err)
-    }
-});
-
 module.exports = router;
