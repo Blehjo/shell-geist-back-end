@@ -107,8 +107,6 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    res.cookie('test', 'test', { sameSite: 'none', secure: true, maxAge: 60000 })
-
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
