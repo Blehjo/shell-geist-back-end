@@ -3,7 +3,7 @@ const { UserProfile, UserPost, Game, Friendship, Group, GroupMember } = require(
 
 router.get('/', async (req, res) => {
   if (!req.session.loggedIn) {
-    res.redirect('/login');
+    res.send('LOG IN FIRST');
   } else {
       try {
           const userData = await UserProfile.findAll({
