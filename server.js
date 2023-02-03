@@ -38,6 +38,11 @@ app.use(cors({
   preflightContinue: true
 }));
 
+app.use((request, response, next) => {
+  response.setHeader("custom-header", request.session);
+  next();
+});
+
 app.use(session(sess));
 
 app.use(express.json());
