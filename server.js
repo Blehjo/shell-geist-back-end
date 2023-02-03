@@ -20,7 +20,7 @@ const sess = {
     secure: true,
   },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   secret: 'process.env.SECRET',
   store: new SequelizeStore({
     db: sequelize
