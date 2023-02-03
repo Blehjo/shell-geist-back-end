@@ -16,8 +16,8 @@ const sess = {
   cookie: { 
     maxAge: 600000000,
     httpOnly: true,
-    sameSite: 'strict',
-    secure: false,
+    sameSite: 'none',
+    secure: true,
   },
   resave: false,
   saveUninitialized: true,
@@ -32,7 +32,7 @@ app.use(cors({
     "https://shellgeist.com", "http://localhost:3000"
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Powered-By', 'Vary', 'Access-Control-Allow-Credentials', 'Content-Length', 'ETag', 'Date', 'Connection', 'Keep-Alive	'],
   credentials: true,
   preflightContinue: false
 }));
