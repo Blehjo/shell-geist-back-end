@@ -12,10 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  // name: 'shellgeist',
+  name: 'shellgeist',
   cookie: { 
     maxAge: 600000000,
-    // httpOnly: true,
+    httpOnly: false,
     sameSite: 'strict',
     secure: false,
   },
@@ -32,7 +32,7 @@ app.use(cors({
     "https://shellgeist.com", "http://localhost:3000"
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Powered-By', 'Vary', 'Access-Control-Allow-Credentials', 'Content-Length', 'ETag', 'Date', 'Connection', 'Keep-Alive	'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Powered-By', 'Vary', 'Access-Control-Allow-Credentials', 'Content-Length', 'ETag', 'Date', 'Connection', 'Keep-Alive', 'Set-Cookie'],
   credentials: true,
   preflightContinue: true
 }));
