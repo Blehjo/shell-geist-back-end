@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { UserPost, UserProfile, PostComment } = require('../../models');
 
 router.get('/', async (req, res) => {
-    if (req.session.loggedIn) {
+    if (!req.session.loggedIn) {
       res.redirect('/login');
     } else {
         try {
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    if (req.session.loggedIn) {
+    if (!req.session.loggedIn) {
       res.redirect('/login');
     } else {
         try {
