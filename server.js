@@ -17,7 +17,7 @@ const sess = {
     maxAge: 600000000,
     // httpOnly: true,
     sameSite: 'lax',
-    secure: false,
+    secure: true,
   },
   resave: false,
   saveUninitialized: true,
@@ -33,6 +33,7 @@ app.use(cors({
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Powered-By', 'Vary', 'Access-Control-Allow-Credentials', 'Content-Length', 'ETag', 'Date', 'Connection', 'Keep-Alive	'],
+  exposedHeaders: ["custom-header"],
   credentials: true,
   preflightContinue: true
 }));
