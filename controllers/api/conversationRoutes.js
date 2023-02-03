@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:conversation_id', async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
       res.redirect('/login');
     } else {
         try {

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { UserProfile, UserPost, Game, Friendship, Group, GroupMember } = require('../../models');
 
 router.get('/', async (req, res) => {
-  if (!req.session.loggedIn) {
+  if (!req.session.logged_in) {
     res.redirect('/login');
   } else {
       try {
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  if (!req.session.loggedIn) {
+  if (!req.session.logged_in) {
     res.redirect('/login');
   } else {
       try {
@@ -121,7 +121,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   try {
-    if (!req.session.logged_in) {
+    if (!req.session.user_id) {
       req.session.destroy(() => {
         res.status(204).end();
       });
