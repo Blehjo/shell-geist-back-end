@@ -14,10 +14,10 @@ const PORT = process.env.PORT || 3001;
 const sess = {
   // name: 'shellgeist',
   cookie: { 
-    maxAge: 6000000,
+    maxAge: 600000000,
     httpOnly: true,
-    secure: false,
-    sameSite: 'strict',
+    sameSite: 'none',
+    secure: true,
   },
   resave: false,
   saveUninitialized: false,
