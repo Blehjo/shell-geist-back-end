@@ -3,23 +3,25 @@ const express = require('express');
 const session = require('express-session');
 const cors = require("cors");
 
-const routes = require('./controllers/index');
-
-const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+     
+const routes = require('./controllers/index');
+const sequelize = require('./config/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
   secret: 'process.env.SECRET',
-  name: 'shellgeist',
-  resave: false,
-  saveUninitialized: false,
+  // name: 'shellgeist',
   cookie: { 
-    sameSite: 'none',
-    secure: true
+    maxAge: 6000000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
   },
+  resave: false,
+  saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
   })
@@ -30,7 +32,7 @@ app.use(cors({
     "https://shellgeist.com", "http://localhost:3000"
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  // preflightContinue: true,
+  preflightContinue: true,
   credentials: true
 }));
 
