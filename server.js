@@ -33,15 +33,9 @@ app.use(cors({
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Powered-By', 'Vary', 'Access-Control-Allow-Credentials', 'Content-Length', 'ETag', 'Date', 'Connection', 'Keep-Alive	'],
-  exposedHeaders: ["custom-header"],
   credentials: true,
   preflightContinue: true
 }));
-
-app.use((request, response, next) => {
-  response.setHeader("custom-header", request.session);
-  next();
-});
 
 app.use(session(sess));
 
