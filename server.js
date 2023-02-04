@@ -15,7 +15,7 @@ const sess = {
   name: 'shellgeist',
   cookie: { 
     maxAge: 600000000,
-    httpOnly: false,
+    httpOnly: true,
     sameSite: 'none',
     secure: true,
   },
