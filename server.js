@@ -16,7 +16,7 @@ const sess = {
   cookie: { 
     maxAge: 600000000,
     httpOnly: true,
-    sameSite: 'strict',
+    sameSite: 'none',
     secure: true,
   },
   resave: false,
@@ -33,7 +33,7 @@ app.use(cors({
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Powered-By', 'Vary', 'Access-Control-Allow-Credentials', 'Content-Length', 'ETag', 'Date', 'Connection', 'Keep-Alive', 'Set-Cookie'],
-  credentials: true,
+  // credentials: true,
   // preflightContinue: true
 }));
 
@@ -48,6 +48,3 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
-
-
-// "{"user":{"id":42,"username":"Nani","email":"nani@gmail.com","password":"$2b$10$biC/BCatli6zQ/2Urwl5vOmRWEXEhBuLKQDolIABjjlV3igrc6Mna","country":"Afghanistan","date_of_birth":"1991-06-24","first_name":"Nani","last_name":"Major","about":null,"media_location":null},"message":"You are now logged in!","req":{"cookie":{"originalMaxAge":600000000,"expires":"2023-02-10T22:00:28.757Z","secure":true,"httpOnly":true,"path":"/","sameSite":"lax"},"user_id":42,"logged_in":true}}"
