@@ -11,13 +11,17 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.disable("X-Powered-By");
+
+app.set("trust proxy", 1);
+
 const sess = {
   name: 'shellgeist',
   cookie: { 
-    maxAge: 600000000,
-    httpOnly: true,
     sameSite: 'none',
     secure: true,
+    httpOnly: true,
+    maxAge: 600000000,
   },
   resave: false,
   saveUninitialized: true,
@@ -32,10 +36,19 @@ app.use(cors({
     "https://shellgeist.com", "http://localhost:3000"
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Powered-By', 'Vary', 'Access-Control-Allow-Credentials', 'Content-Length', 'ETag', 'Date', 'Connection', 'Keep-Alive', 'Set-Cookie'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Vary', 'Access-Control-Allow-Credentials', 'Content-Length', 'ETag', 'Date', 'Connection', 'Keep-Alive', 'Set-Cookie'],
   credentials: true,
   preflightContinue: true
 }));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Origin", "https://shellgeist.com");
+  res.header("Access-Control-Allow-Headers",
+  "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  next();  
+}); 
 
 app.use(session(sess));
 
