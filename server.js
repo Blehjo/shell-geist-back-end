@@ -33,7 +33,7 @@ app.use(cors({
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Powered-By', 'Vary', 'Access-Control-Allow-Credentials', 'Content-Length', 'ETag', 'Date', 'Connection', 'Keep-Alive', 'Set-Cookie'],
-  // credentials: true,
+  credentials: true,
   // preflightContinue: true
 }));
 
