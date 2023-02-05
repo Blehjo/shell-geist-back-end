@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { UserProfile, UserPost, Game, Friendship, Group, GroupMember } = require('../../models');
 
 router.get('/', async (req, res) => {
-  if (!req.session.logged_in) {
+  if (!req.session) {
     res.redirect('/login');
   } else {
       try {
