@@ -24,7 +24,6 @@ router.get('/events/:id', async (req, res) => {
         res.json(
             events
         )
-        console.log(events)
     } catch (err) {
         res.status(500).json(err)
     }
@@ -87,8 +86,7 @@ router.get('/events', async (req, res) => {
         const events = eventData.map((post) => post.get({ plain: true }))
         res.json(
             events
-        )
-        console.log(events)
+        );
     } catch (err) {
         res.status(500).json(err)
     }
@@ -114,7 +112,6 @@ router.get('/posts', async (req, res) => {
         res.json(
             posts
         )
-        console.log(posts)
     } catch (err) {
         res.status(500).json(err)
     }
@@ -143,7 +140,6 @@ router.get('/posts/:id', async (req, res) => {
         res.json(
             posts
         )
-        console.log(posts)
     } catch (err) {
         res.status(500).json(err)
     }
@@ -228,7 +224,6 @@ router.get('/users', async (req, res) => {
         res.json(
             posts
         )
-        console.log(posts)
     } catch (err) {
         res.status(500).json(err)
     }
@@ -254,7 +249,6 @@ router.get('/groups', async (req, res) => {
         res.json(
             posts
         )
-        console.log(posts)
     } catch (err) {
         res.status(500).json(err)
     }
@@ -283,7 +277,6 @@ router.get('/groups/:group_name', async (req, res) => {
         res.json(
             posts
         )
-        console.log(posts)
     } catch (err) {
         res.status(500).json(err)
     }

@@ -23,8 +23,7 @@ router.get('/', async (req, res) => {
         const events = eventData.map((post) => post.get({ plain: true }))
         res.json(
             events
-        )
-        console.log(events)
+        );
     } catch (err) {
         res.status(500).json(err)
     }

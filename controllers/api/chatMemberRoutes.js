@@ -23,8 +23,7 @@ router.get('/', async (req, res) => {
         const posts = postData.map((post) => post.get({ plain: true }))
         res.json(
             posts
-        )
-        console.log(posts)
+        );
     } catch (err) {
         res.status(500).json(err)
     }
@@ -63,8 +62,7 @@ router.post('/:conversation_id', async (req, res) => {
     });
     res.json(
         userData
-    )
-    console.log(userData);
+    );
   } catch (err) {
     res.status(400).json(err);
   }

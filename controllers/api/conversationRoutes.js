@@ -23,8 +23,7 @@ router.get('/', async (req, res) => {
         const posts = conversationData.map((post) => post.get({ plain: true }))
         res.json(
             posts
-        )
-        console.log(posts)
+        );
     } catch (err) {
         res.status(500).json(err)
     }

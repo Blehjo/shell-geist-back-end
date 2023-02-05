@@ -15,8 +15,7 @@ router.get('/:conversation_id', async (req, res) => {
         const messages = messageData.map((message) => message.get({ plain: true }))
         res.json(
             messages
-        )
-        console.log(messages)
+        );
     } catch (err) {
         res.status(500).json(err)
     }

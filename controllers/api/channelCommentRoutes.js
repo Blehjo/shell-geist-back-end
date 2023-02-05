@@ -13,7 +13,6 @@ router.get('/', async (req, res) => {
         res.json(
             posts
         )
-        console.log(posts)
     } catch (err) {
         res.status(500).json(err)
     }
