@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:profile_id', async (req, res) => {
   if (!req.session.logged_in) {
-    res.redirect('/login');
+    res.redirect("/can't access event members");
   } else {
       try {
           const userData = await EventMember.findByPk(req.params.profile_id, {

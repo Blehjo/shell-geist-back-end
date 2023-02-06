@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:group_id', async (req, res) => {
   if (!req.session.logged_in) {
-    res.redirect('/login');
+    res.redirect("/can't access chats");
     } else {
         try {
             const userData = await ChatMember.findByPk(req.params.group_id, {

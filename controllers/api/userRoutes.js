@@ -3,7 +3,7 @@ const { UserProfile, UserPost, Game, Friendship, Group, GroupMember } = require(
 
 router.get('/', async (req, res) => {
   if (!req.session.logged_in) {
-    res.redirect('/login');
+    res.redirect("/can't access users");
   } else {
       try {
           const userData = await UserProfile.findAll({
@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   if (!req.session.logged_in) {
-    res.redirect('/login');
+    res.redirect("/can't access users");
   } else {
       try {
           const userData = await UserProfile.findAll({

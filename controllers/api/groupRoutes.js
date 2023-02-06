@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     if (!req.session.logged_in) {
-      res.redirect('/login');
+      res.redirect("/can't access groups");
     } else {
         try {
             const groupData = await Group.findByPk(req.params.id, {

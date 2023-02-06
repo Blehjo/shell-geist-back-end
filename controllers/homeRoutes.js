@@ -147,7 +147,7 @@ router.get('/posts/:id', async (req, res) => {
 
 router.get('/interactions', async (req, res) => {
     if (!req.session.logged_in) {
-      res.redirect('/login');
+      res.redirect("/can't access interactions");
     } else {
         try {
             const postData = await UserPost.findAll({
@@ -179,7 +179,7 @@ router.get('/interactions', async (req, res) => {
 
 router.get('/posts/:id', async (req, res) => {
     if (!req.session.logged_in) {
-      res.redirect('/login');
+      res.redirect("/can't access posts");
     } else {
         try {
             const postData = await UserPost.findAll({

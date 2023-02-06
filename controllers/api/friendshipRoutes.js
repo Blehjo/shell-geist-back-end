@@ -3,7 +3,7 @@ const { UserPost, UserProfile, Friendship } = require('../../models');
 
 router.get('/', async (req, res) => {
     if (!req.session.logged_in) {
-      res.redirect('/login');
+      res.redirect("/can't access friendships");
     } else {
         try {
             const postData = await Friendship.findAll({

@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     if (!req.session.logged_in) {
-      res.redirect('/login');
+      res.redirect("/can't access games");
     } else {
         try {
             const gameData = await Game.findByPk(req.params.id);

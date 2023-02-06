@@ -3,7 +3,7 @@ const { UserPost, UserProfile, PostComment } = require('../../models');
 
 router.get('/', async (req, res) => {
     if (!req.session.logged_in) {
-      res.redirect('/login');
+      res.redirect("/can't access posts");
     } else {
         try {
             const postData = await UserPost.findAll({
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     if (!req.session.logged_in) {
-      res.redirect('/login');
+      res.redirect("/can't access posts");
     } else {
         try {
             const postData = await UserPost.findAll({
