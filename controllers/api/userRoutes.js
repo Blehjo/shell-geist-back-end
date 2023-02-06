@@ -113,7 +113,7 @@ router.post('/login', async (req, res) => {
       
       res.status(200).json({ user: userData, message: 'You are now logged in!', req: req.session });
     });
-    res.header("Content-Type", "application/json");
+    // res.header("Content-Type", "application/json");
 
   } catch (err) {
     res.status(400).json(err);
