@@ -122,7 +122,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   try {
-    if (!req.session.user_id) {
+    if (req.session.user_id) {
       req.session.destroy(() => {
         res.status(204).end();
       });
