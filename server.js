@@ -25,7 +25,7 @@ const sess = {
   },
   resave: false,
   saveUninitialized: true,
-  secret: 'process.env.SECRET',
+  secret: process.env.SECRET,
   store: new SequelizeStore({
     db: sequelize
   })
