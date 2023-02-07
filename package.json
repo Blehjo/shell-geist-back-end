@@ -4,12 +4,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "scripts": {
-    "dev": "start",
     "start": "node server.js",
-    "build": "build",
-    "test": "test --env=jsdom",
-    "eject": "eject",
-    "heroku-postbuild": "npm run build",
     "seed": "node seeds/seed.js",
     "watch": "nodemon server.js"
   },
